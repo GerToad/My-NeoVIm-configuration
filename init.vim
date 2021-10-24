@@ -28,14 +28,35 @@ let bufferline.auto_hide = v:true
 
 let mapleader=" "
 
+"-------------EasyMotion----------------
 nmap <Leader>s <Plug>(easymotion-s2)
+
+"-------------NERDTree------------
 nmap <Leader>nt :NERDTreeFind<CR>
 
+"----------------General------------------------
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
-nmap <F7> gg=G<C-o><C-o>
+nmap <F6> gg=G<C-o><C-o>
+"quick semi ---------this
+nnoremap <Leader>; $a;<Esc> 
+"Buffers ---this
+map <Leader>ob :Buffers<cr>
+"Scrolling ----this
+nnoremap <C-j> 10<C-e>
+nnoremap <C-k> 10<C-y>
 
-"Moving bewteen tabs on tha same buffer (Alt + ,/.)
+"Status Bar
+let g:lightline = {
+      \ 'colorscheme': 'ayu_light',
+      \ }
+
+"-------------Tmux navigator---------------this
+"split resize
+nnoremap <Leader>> 10<C-w>>
+nnoremap <Leader>< 10<C-w><
+
+"-------------Moving bewteen (Alt + ,/.)------------
 nnoremap <silent>    <A-,> :BufferPrevious<CR>
 nnoremap <silent>    <A-.> :BufferNext<CR>
 
@@ -65,8 +86,21 @@ nnoremap <A-l> <C-w>l
 
 "------------Search files--------------
 nnoremap <C-p> :FZF<CR>
+map <leader>p :Files<CR>
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit'
   \}
+"Search inside the files --------this
+"map <Leader>ag :Ag<CR> ----Doesn't works
+
+"------------IntelliSense and Syntax Highlighting--------------
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+"this-------"
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)    It fails!
+
+
