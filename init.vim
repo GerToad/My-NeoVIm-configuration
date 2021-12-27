@@ -14,17 +14,26 @@ set laststatus=2
 "Plugins
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
-"Theme
-"colorscheme gruvbox
+"Themes
+colorscheme nord
 "let g:gruvbox_contrast_dark = "hard"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vifm
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <Leader>vv :Vifm<CR>
+map <Leader>vs :VsplitVifm<CR>
+map <Leader>sp :SplitVifm<CR>
+map <Leader>dv :DiffVifm<CR>
+map <Leader>tv :TabVifm<CR>
 
 "NerdTree
 let NERDTreeQuitOnOpen=1
 
 "Icons Barbar
 let bufferline = get(g:, 'bufferline', {})
-let bufferline.icons = v:false
-let bufferline.auto_hide = v:true
+let bufferline.icons = v:true
+let bufferline.auto_hide = v:false
 
 let mapleader=" "
 
@@ -45,10 +54,14 @@ map <Leader>ob :Buffers<cr>
 "Scrolling ----this
 nnoremap <C-j> 10<C-e>
 nnoremap <C-k> 10<C-y>
+"Clipboard 
+nnoremap <Leader>co Vy<Esc>
+nnoremap <Leader>cl "+y<Esc>
 
 "Status Bar
 let g:lightline = {
-      \ 'colorscheme': 'ayu_light',
+      \ 'colorscheme': 'tender',
+      \ 'background': 'blue',
       \ }
 
 "-------------Tmux navigator---------------this
@@ -59,6 +72,7 @@ nnoremap <Leader>< 10<C-w><
 "-------------Moving bewteen (Alt + ,/.)------------
 nnoremap <silent>    <A-,> :BufferPrevious<CR>
 nnoremap <silent>    <A-.> :BufferNext<CR>
+nnoremap <silent>    <A-c> :BufferClose<CR>
 
 "-----------Termial config------------
 " open new split panes to right and below
